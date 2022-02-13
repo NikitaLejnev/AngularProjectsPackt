@@ -11,8 +11,7 @@ export class IssueReportComponent implements OnInit {
 
   issueForm: FormGroup | undefined;
 
-  constructor(private builder: FormBuilder, private
-    issueService: IssuesService) { }
+  constructor(private builder: FormBuilder, private issueService: IssuesService) { }
 
   ngOnInit(): void {
     this.issueForm = this.builder.group({
