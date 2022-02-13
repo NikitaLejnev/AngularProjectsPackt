@@ -7,21 +7,19 @@ import { Subscription } from 'rxjs';
   templateUrl: './articles.component.html',
   styleUrls: ['./articles.component.scss']
 })
-export class ArticlesComponent implements OnInit {
+export class ArticlesComponent implements OnInit, OnDestroy {
 
   posts: ScullyRoute[] = [];
   private routeSub: Subscription | undefined;
 
-  constructor(private scullyService: ScullyRoutesService) {
-  }
+  constructor(private scullyService: ScullyRoutesService) { }
 
   ngOnInit(): void {
-    this.routeSub =
-      this.scullyService.available$.subscribe(posts => {
+    this.routeSub = this.scullyService.available$.subscribe(posts => {
       this.posts = posts.filter(post => post.title);
     });
   }
-  
+
   ngOnDestroy(): void {
     this.routeSub?.unsubscribe();
   }
