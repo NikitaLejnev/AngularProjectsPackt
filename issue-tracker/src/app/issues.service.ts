@@ -31,10 +31,20 @@ export class IssuesService {
 
   getSuggestions(title: string): Issue[] {
     if (title.length > 3) {
-      return this.issues.filter(issue =>
-        issue.title.indexOf(title) !== -1);
+      return this.issues.filter(issue => issue.title.indexOf(title) !== -1);
     }
     return [];
+  }
+
+  updateIssue(issueNo: number, issue: Issue) {
+    const existingIssue = this.issues.find(i => i.issueNo === issueNo);
+    if(existingIssue) {
+      const index = this.issues.indexOf(existingIssue);
+      this.issues[index] = {
+        ...existingIssue,
+        ...issue
+      };
+    }
   }
 
 }
