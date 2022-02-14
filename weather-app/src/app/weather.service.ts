@@ -17,6 +17,6 @@ export class WeatherService {
       .set('q', city)
       .set('appId', environment.apiKey);
 
-    return this.http.get<Weather>(environment.apiUrl + 'weather', { params: options });
+    return this.http.get<Weather>(environment.apiUrl + '/weather', { params: options });
   }
 }
