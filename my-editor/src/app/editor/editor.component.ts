@@ -20,4 +20,8 @@ export class EditorComponent implements OnInit {
     this.myContent = await this.editorService.getContent();
   }
 
+  saveContent(content: string) {
+    this.editorService.setContent(content);
+  }
+
 }
