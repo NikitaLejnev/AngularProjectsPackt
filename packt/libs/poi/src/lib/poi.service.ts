@@ -1,5 +1,5 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { PoiEntity } from '..';
 
@@ -13,4 +13,5 @@ export class PoiService {
   getAll(): Observable<PoiEntity[]> {
     return this.http.get<PoiEntity[]>('assets/poi.json');
   }
+
 }
