@@ -6,6 +6,8 @@ import * as PoiFeature from './poi.reducer';
 import * as PoiActions from './poi.actions';
 import { map } from 'rxjs/operators';
 import { PoiService } from '../poi.service';
+import { StorageService } from '../storage.service';
+import { EMPTY } from 'rxjs';
 
 @Injectable()
 export class PoiEffects {
@@ -27,5 +29,20 @@ export class PoiEffects {
     )
   );
 
-  constructor(private actions$: Actions, private poiService: PoiService) {}
+  visit$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(PoiActions.visitPoi),
+      fetch({
+        run: action => {
+          const stat = this.storageService.get('tour-' + action.poiId);
+          const total = stat ? Number(stat) + 1 : 1;
+          this.storageService.set('tour-' + action.poiId, total);
+          return EMPTY;
+        }
+      })
+    ))
+
+  constructor(private actions$: Actions,
+              private poiService: PoiService,
+              private storageService: StorageService) { }
 }
