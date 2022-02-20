@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { PoiActions, PoiEntity , PoiSelectors } from '@packt/poi';
+import { PoiActions, PoiEntity, PoiSelectors } from '@packt/poi';
 
 @Component({
   selector: 'packt-poi-list',

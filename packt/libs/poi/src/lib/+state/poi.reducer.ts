@@ -1,5 +1,5 @@
-import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
 import { createReducer, on, Action } from '@ngrx/store';
+import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
 
 import * as PoiActions from './poi.actions';
 import { PoiEntity } from './poi.models';
@@ -16,8 +16,7 @@ export interface PoiPartialState {
   readonly [POI_FEATURE_KEY]: State;
 }
 
-export const poiAdapter: EntityAdapter<PoiEntity> =
-  createEntityAdapter<PoiEntity>();
+export const poiAdapter: EntityAdapter<PoiEntity> = createEntityAdapter<PoiEntity>();
 
 export const initialState: State = poiAdapter.getInitialState({
   // set initial required properties

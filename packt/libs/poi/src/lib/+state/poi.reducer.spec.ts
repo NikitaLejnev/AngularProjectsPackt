@@ -1,7 +1,5 @@
-import { Action } from '@ngrx/store';
-
-import * as PoiActions from './poi.actions';
 import { PoiEntity } from './poi.models';
+import * as PoiActions from './poi.actions';
 import { State, initialState, reducer } from './poi.reducer';
 
 describe('Poi Reducer', () => {
@@ -27,7 +25,7 @@ describe('Poi Reducer', () => {
 
   describe('unknown action', () => {
     it('should return the previous state', () => {
-      const action = {} as Action;
+      const action = {} as any;
 
       const result = reducer(initialState, action);
 

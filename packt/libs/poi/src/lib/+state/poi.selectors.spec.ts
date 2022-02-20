@@ -47,13 +47,13 @@ describe('Poi Selectors', () => {
       expect(selId).toBe('PRODUCT-BBB');
     });
 
-    it('getPoiLoaded() should return the current "loaded" status', () => {
+    it("getPoiLoaded() should return the current 'loaded' status", () => {
       const result = PoiSelectors.getPoiLoaded(state);
 
       expect(result).toBe(true);
     });
 
-    it('getPoiError() should return the current "error" state', () => {
+    it("getPoiError() should return the current 'error' state", () => {
       const result = PoiSelectors.getPoiError(state);
 
       expect(result).toBe(ERROR_MSG);
