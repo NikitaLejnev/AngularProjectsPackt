@@ -20,5 +20,4 @@ export class CardListComponent implements OnInit {
     moveItemInArray(this.cards, event.previousIndex, event.currentIndex);
     this.cardChange.emit(this.cards);
   }
-
 }
